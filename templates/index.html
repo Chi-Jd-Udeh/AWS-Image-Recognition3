@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekognize · Image Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <div class="logo-mark">R</div>
+  <div class="logo-text">
+    <strong>Rekognize</strong>
+    AWS Rekognition · Image Analyzer
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="upload-zone" id="drop-zone">
+    <input type="file" id="file-input" accept="image/*">
+    <div class="upload-icon">🖼️</div>
+    <div class="upload-title">Drop an image here or click to browse</div>
+    <div class="upload-sub">Supports JPG, PNG, WEBP &nbsp;·&nbsp; Max 10 MB</div>
+  </div>
+
+  <div id="preview-wrap">
+    <img id="preview-img" alt="Preview">
+    <canvas id="canvas-overlay"></canvas>
+    <div class="preview-name">
+      <span class="dot"></span>
+      <span id="preview-name-text"></span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" id="analyze-btn" disabled>
+      <span>⚡</span> Analyze Image
+    </button>
+    <button class="btn btn-ghost" id="clear-btn" style="display:none">
+      Clear
+    </button>
+  </div>
+
+  <div id="status">
+    <div class="spinner" id="status-spinner"></div>
+    <span id="status-text"></span>
+  </div>
+
+  <div id="results">
+    <div class="results-header">
+      <span class="results-title">Detected Labels</span>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div class="labels-grid" id="labels-grid"></div>
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
