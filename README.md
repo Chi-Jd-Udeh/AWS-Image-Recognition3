@@ -14,6 +14,9 @@ A Flask web app that lets users upload an image, runs it through **AWS Rekogniti
 4. Results are displayed in the browser with boxes drawn over the image
 5. The image is deleted from S3 after analysis
 
+Here's an example of a processed image...
+
+<img width="1607" height="808" alt="Architect" src="https://github.com/Chi-Jd-Udeh/Image-box/blob/main/pup_rekognize.png?raw=true" />
 ---
 
 # AWS Architecture
