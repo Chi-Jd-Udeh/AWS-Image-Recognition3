@@ -48,6 +48,17 @@ Controls which AWS actions the app is allowed to perform. The app authenticates 
 | `rekognition:DetectLabels` | Run label detection on the uploaded image |
  
 ---
+## AWS Cost Breakdown
+
+| Service | Usage Assumption | Estimated Cost |
+|--------|----------------|---------------|
+| Amazon S3 | ~1GB storage + 1,000 requests | ~$0.02 – $0.05 |
+| AWS Lambda / EC2 (Flask App) | Low compute usage | ~$0.00 (Free Tier) |
+| Amazon API Gateway | ~1,000 requests | ~$0.00 – $0.01 |
+| Amazon Rekognition | 1,000 image analyses | ~$1.00 |
+| **Total** | — | **~$1 – $1.10/month** |
+
+---
 ## License
 
 MIT
