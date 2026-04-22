@@ -20,8 +20,8 @@ Here's an example of a processed image...
 ---
 
 # AWS Architecture
- 
-An overview of the Amazon services that power Rekognize and how they fit together.
+
+<img width="1607" height="808" alt="Architect" src="https://github.com/Chi-Jd-Udeh/Image-box/blob/main/aws_rekognize_diagram.png?raw=true" />
  
 ---
  
@@ -38,33 +38,6 @@ Controls which AWS actions the app is allowed to perform. The app authenticates 
  
 ---
  
-## How the Services Connect
- 
-```
-Browser
-  │
-  │  POST /analyze (image file)
-  ▼
-Flask App
-  │
-  ├─── s3:PutObject ──────────────▶ S3 Bucket
-  │                                  (image stored at uploads/<uuid>_filename)
-  │
-  ├─── rekognition:DetectLabels ──▶ AWS Rekognition
-  │         (reads directly from S3, same region)
-  │         (returns labels + bounding boxes)
-  │
-  ├─── s3:GetObject ──────────────▶ S3 Bucket
-  │         (reads image to send back to browser)
-  │
-  └─── s3:DeleteObject ───────────▶ S3 Bucket
-            (cleans up the uploaded file)
-```
- 
-> S3 and Rekognition must be in the **same AWS region**, or Rekognition will be unable to read the uploaded file.
- 
----
- 
 ## IAM Permissions Required
  
 | Permission | Why it's needed |
@@ -75,4 +48,7 @@ Flask App
 | `rekognition:DetectLabels` | Run label detection on the uploaded image |
  
 ---
+## License
+
+MIT
 
